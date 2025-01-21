@@ -12,6 +12,7 @@ if __name__ == '__main__':
         nom="Folgueroles",
         codi_postal="08519"
     )
+
     e1 = Establiment(
         nom="Forn de Sant Jordi",
         coordenades=(2.318286, 41.938136),
@@ -25,7 +26,7 @@ if __name__ == '__main__':
         actiu=True,
         telefons=["93 888 72 25"],
         emails=["info@cocadelmossen.cat"]
-    ).save()
+    ).save(cascade=True)
 
     # Tanquem la connexió.
     disconnect()
