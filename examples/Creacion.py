@@ -7,7 +7,6 @@ class Municipi(me.Document):
    nom = me.StringField(max_length=128, required=True, unique_with="codi_postal")
    meta = {"collection": "municipis"}
 
-
 if __name__ == "__main__":
    # Connexió sobre la base de dades "boccato_di_cardinale". Si no existeix
    # aquesta base de dades, es crearà.
