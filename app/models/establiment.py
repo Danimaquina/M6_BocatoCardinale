@@ -13,4 +13,17 @@ class Establiment(me.Document):
     actiu = me.BooleanField(required=True, default=True)
     telefons = me.ListField(me.StringField(max_length=32, required=True))
     emails = me.ListField(me.StringField(max_length=64, required=True))
-    meta = {"collection": "establiments"}
+    meta = {"collection": "establiments", "allow_inheritance": True}
+
+# Classe TipusBotiga que ha de permetre representar els diversos tipus de botigues que podem tenir
+# a la base de dades.
+class TipusBotiga(me.Document):
+     id = me.SequenceField(primary_key=True)
+     nom = me.StringField(max_length=64, unique=True)
+     sinonims = me.ListField(me.StringField(max_length=32, required=True, unique=True))
+     meta={"collection": "tipus_botigues"}
+
+class Botiga(Establiment):
+    tipus = me.ReferenceField(TipusBotiga, required=True)
+
+
