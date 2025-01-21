@@ -18,7 +18,7 @@ if __name__ == '__main__':
         domicili="C. Atlàntida, 8",
         municipi=m1,
         localitat=None,
-        lloc_web="http: /www.cocadelmossen.cat",
+        lloc_web="http://www.cocadelmossen.cat",
         especialitats=["Coca de pa", "Coca de sucre", "Coca amb xocolata",
                        "Coca de cabell d'àngel"],
         observacions=None,

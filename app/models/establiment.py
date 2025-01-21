@@ -1,5 +1,5 @@
 import mongoengine as me
-from municipi import Municipi
+from .municipi import Municipi
 
 class Establiment(me.Document):
     nom = me.StringField(max_length=128, required=True, unique=True)
