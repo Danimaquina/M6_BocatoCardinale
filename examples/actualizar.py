@@ -15,11 +15,11 @@ if __name__ == "__main__":
     db = me.connect(host="mongodb://127.0.0.1:27017/boccato_di_cardinale")
     
     # Consultem el municipi abans de modificar-lo.
-    municipis = Municipi.objects(codi_postal="43540")
+    municipis = Municipi.objects(codi_postal="08519")
     print("Abans de la modificació: %s" % municipis[0])
 
     # Fem la modificació.
-    resultat = Municipi.objects(codi_postal="43540").update_one(nom="La Ràpita")
+    resultat = Municipi.objects(codi_postal="08519").update_one(nom="La Ràpita")
 
     # Si s'ha fet la modificació, mostrem el municipi actualitzat.
     if resultat:
