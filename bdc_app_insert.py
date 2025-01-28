@@ -15,3 +15,6 @@ if __name__ == "__main__":
     print("\nLes especialitats d'aquest establiment són:\n")
     for i, esp in enumerate(establiment_seleccionat.especialitats, start=1):
         print(f"    {i}: {esp}")
+
+    especialitat = input("\nIntrodueix una nova especialitat: ")
+    establiment_seleccionat.update(push__especialitats=especialitat)
