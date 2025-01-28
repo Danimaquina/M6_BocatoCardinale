@@ -9,14 +9,14 @@ if __name__ == "__main__":
     for i, est in enumerate(establiments, start=1):
         print(f"    {i}: {est.nom:<40} ({est.municipi.codi_postal} - {est.municipi.nom})")
 
-    select_est = input("\nSelecciona un establecimiento por su numero: ")
+    select_est = input("\nSelecciona un estableciment pel seu numero: ")
     establiment_seleccionat = establiments[int(select_est) - 1]
 
     print("\nLes especialitats d'aquest establiment són:\n")
     for i, esp in enumerate(establiment_seleccionat.especialitats, start=1):
         print(f"    {i}: {esp}")
 
-    select_esp = input("\nSelecciona una especialidad por su numero para eliminarla: ")
+    select_esp = input("\nSelecciona una especialit pel seu numero per eliminarla: ")
     especialitat_a_eliminar = establiment_seleccionat.especialitats[int(select_esp) - 1]
 
     establiment_seleccionat.update(pull__especialitats=especialitat_a_eliminar)
