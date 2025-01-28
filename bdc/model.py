@@ -1,5 +1,13 @@
 import mongoengine as me
-from .municipi import Municipi
+
+print("Cargando el modulo... %s" % __name__)
+
+# Classe Municipi que representarà aquest concepte en la nostra aplicació.
+class Municipi(me.Document):
+   id = me.SequenceField(primary_key=True)
+   codi_postal = me.StringField(max_length=5, min_length=5, regex="\\d{5}")
+   nom = me.StringField(max_length=128, required=True, unique_with="codi_postal")
+   meta = {"collection": "municipis"}
 
 # Classe que representa el concepte de franja horària, amb una hora d'inici i una hora final.
 class FranjaHoraria(me.EmbeddedDocument):
@@ -41,6 +49,3 @@ class Botiga(Establiment):
 # Classe Restaurant que té tot el que hereta d'Establiment, més l'atribut per definir l'oferta.
 class Restaurant(Establiment):
     oferta_gastronomica = me.ListField(me.StringField(max_length=32, required=True, unique=True), required=False)
-
-
-
