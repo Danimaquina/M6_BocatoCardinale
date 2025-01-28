@@ -1,5 +1,5 @@
 from app.models.municipi import Municipi
-from app.models.establiment import Botiga, TipusBotiga
+from app.models.establiment import Botiga, TipusBotiga, HorariDiari, FranjaHoraria
 
 def create_basic():
     # Creem dos objectes de tipus Botiga, amb els seus tipus i els seus municipis.
@@ -32,6 +32,13 @@ def create_basic():
         actiu=True,
         telefons=["93 888 72 25"],
         emails=["info@cocadelmossen.cat"],
+        horari=[
+            HorariDiari(
+                dia=1,
+                franges=[FranjaHoraria(hora_obertura="09:00", hora_tancament="13:30"),
+                         FranjaHoraria(hora_obertura="17:00", hora_tancament="20:00")]
+            )
+        ],
         tipus=t1
     ).save(cascade=True)
 
@@ -47,6 +54,12 @@ def create_basic():
         actiu=True,
         telefons=["93 880 11 75"],
         emails=["info@carnisseriacodina.com"],
-
+        horari=[
+            HorariDiari(
+                dia=1,
+                franges=[FranjaHoraria(hora_obertura="09:00", hora_tancament="13:30"),
+                         FranjaHoraria(hora_obertura="17:00", hora_tancament="20:00")]
+            )
+        ],
         tipus=t2
     ).save(cascade=True)
