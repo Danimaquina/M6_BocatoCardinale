@@ -11,6 +11,8 @@ def obtenir_municipis():
               error durant la realització de la consulta, es retornarà None.
     :rtype: [md.Municipi]
     """
+    municipis = md.Municipi.objects().order_by("nom")
+    return municipis
 
 
 
@@ -26,4 +28,7 @@ def obtenir_establiments_municipi(id_municipi=None):
 
     :rtype: [md.Establiment]
     """
-
+    if id_municipi is None:
+        return None
+    else:
+        return md.Establiment.objects(municipi=id_municipi).order_by("nom")
